@@ -9,7 +9,7 @@ const putInCache = async (request, response) => {
 };
 
 const cacheFirst = async ({ request, fallbackUrl }) => {
-  console.log('requesting...')
+  console.log(`requesting ${request}...`)
   const responseFromCache = await caches.match(request);
   if (responseFromCache) {
     console.log('...found in cache')
