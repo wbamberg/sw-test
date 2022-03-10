@@ -9,21 +9,26 @@ const putInCache = async (request, response) => {
 };
 
 const cacheFirst = async ({ request, fallbackUrl }) => {
+  console.log('requesting...')
   const responseFromCache = await caches.match(request);
   if (responseFromCache) {
+    console.log('...found in cache')
     return responseFromCache;
   }
   let responseFromNetwork;
   try {
     responseFromNetwork = await fetch(request);
+    console.log('...from network')
   } catch (error) {
     const fallbackResponse = await caches.match(fallbackUrl);
     if (fallbackResponse) {
+      console.log('...fallback')
       return fallbackResponse;
     }
     // when the even fallback response is not available,
     // there is nothing we can do, but we must always
     // return a Response object
+    console.log('...error')
     return new Response("Network error happened", {
       status: 408,
       headers: { "Content-Type": "text/plain" },
