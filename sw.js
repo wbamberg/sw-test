@@ -50,7 +50,6 @@ self.addEventListener("install", (event) => {
       "/sw-test/app.js",
       "/sw-test/image-list.js",
       "/sw-test/star-wars-logo.jpg",
-      "/sw-test/gallery/bountyHunters.jpg",
       "/sw-test/gallery/myLittleVader.jpg",
       "/sw-test/gallery/snowTroopers.jpg",
     ])
